@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -22,6 +23,14 @@ namespace UDPSender
 
                 client.Send(buffer, buffer.Length, ModtagerEP);
 
+
+                //modtager
+                IPEndPoint AfsenderEP = new IPEndPoint(IPAddress.Any, 0);
+                byte[] receive = client.Receive(ref AfsenderEP);
+
+                Console.WriteLine("Modtaget fra " + AfsenderEP.Address + " " + AfsenderEP.Port);
+                String mstr = Encoding.ASCII.GetString(receive);
+                Console.WriteLine("Modtaget \n" + mstr);
 
 
             }

@@ -8,12 +8,11 @@ namespace UDPSender
 {
     class Program
     {
-        private const int MODTAGER_PORT = 22334;
-        //private const int MIN_PORT = 22335;
-
+        private const int PORT = 22334;
+        
         static void Main(string[] args)
         {
-            Sender m = new Sender(MODTAGER_PORT);
+            Sender m = new Sender(PORT);
             m.Start();
 
             Console.ReadLine();
